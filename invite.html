@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shikha & Shashank | Wedding Invite</title>
+  <meta name="description" content="You are cordially invited to the wedding of Shikha & Dr. Shashank – May 5, 2026." />
+
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@200;300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========== DESIGN TOKENS ========== */
+    :root {
+      --deep-purple: #2c1654;
+      --royal-purple: #4a2080;
+      --lavender: #9b72cf;
+      --soft-purple: #c5a3e8;
+      --gold: #d4a843;
+      --champagne: #e8d5a3;
+      --cream: #faf5eb;
+      --ivory: #fffdf7;
+      --text-dark: #1a1029;
+      --text-light: #f0e6ff;
+
+      --font-script: 'Great Vibes', cursive;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Outfit', sans-serif;
+    }
+
+    /* ========== RESET ========== */
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%; height: 100%;
+      overflow: hidden;
+      background: #0d0618;
+    }
+
+    /* ========== MAIN VIEWPORT ========== */
+    .viewport {
+      position: fixed;
+      inset: 0;
+      /* 9:16 vertical video aspect ratio */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0d0618;
+    }
+
+    .canvas {
+      position: relative;
+      width: 100vmin;
+      height: 100vmax;
+      max-width: 1080px;
+      max-height: 1920px;
+      overflow: hidden;
+      background: #0d0618;
+    }
+
+    /* Fullscreen on wide screens */
+    @media (min-aspect-ratio: 9/16) {
+      .canvas {
+        width: calc(100vh * 9 / 16);
+        height: 100vh;
+      }
+    }
+    @media (max-aspect-ratio: 9/16) {
+      .canvas {
+        width: 100vw;
+        height: calc(100vw * 16 / 9);
+      }
+    }
+
+    /* ========== SCENES ========== */
+    .scene {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .scene.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .scene-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .scene-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .scene-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ========== SCENE 1: GANESH & SHUBH VIVAH ========== */
+    #scene1 .scene-bg {
+      background-image: url('assets/bg_hero.png');
+      animation: slowZoom 8s ease-in-out forwards;
+    }
+
+    #scene1 .scene-overlay {
+      background: radial-gradient(ellipse at center, rgba(250,245,235,0.1) 0%, rgba(250,245,235,0.7) 100%);
+    }
+
+    .ganesh-symbol {
+      font-size: 3.5rem;
+      color: var(--gold);
+      opacity: 0;
+      transform: scale(0.5);
+      animation: revealGanesh 2s 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      filter: drop-shadow(0 0 20px rgba(212, 168, 67, 0.4));
+      margin-bottom: 1.5rem;
+    }
+
+    .shubh-text {
+      font-family: var(--font-script);
+      font-size: 3rem;
+      color: var(--royal-purple);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideUp 1.5s 1s ease-out forwards;
+    }
+
+    .vivah-text {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 1.5s 1.8s ease-out forwards;
+      margin-top: 0.5rem;
+    }
+
+    /* ========== SCENE 2: COUPLE NAMES ========== */
+    #scene2 .scene-bg {
+      background-image: url('assets/bg_ceremony.png');
+      animation: slowZoom 10s ease-in-out forwards;
+    }
+
+    #scene2 .scene-overlay {
+      background: radial-gradient(ellipse at center, rgba(13,6,24,0.3) 0%, rgba(13,6,24,0.75) 100%);
+    }
+
+    .couple-photo-frame {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      overflow: hidden;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: scale(0.6);
+      animation: revealPhoto 1.5s 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      box-shadow: 0 0 40px rgba(212, 168, 67, 0.3), 0 0 80px rgba(155, 114, 207, 0.2);
+    }
+
+    .couple-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+
+    .bride-name, .groom-name {
+      font-family: var(--font-script);
+      font-size: 4.5rem;
+      color: var(--champagne);
+      opacity: 0;
+      text-shadow: 0 0 30px rgba(212, 168, 67, 0.3);
+      line-height: 1.1;
+    }
+
+    .bride-name {
+      transform: translateX(-60px);
+      animation: slideRight 1.2s 0.8s ease-out forwards;
+    }
+
+    .weds-label {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--lavender);
+      opacity: 0;
+      animation: fadeInSimple 1s 1.6s ease-out forwards;
+      margin: 0.3rem 0;
+    }
+
+    .groom-name {
+      transform: translateX(60px);
+      animation: slideLeft 1.2s 2s ease-out forwards;
+    }
+
+    .couple-date {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      letter-spacing: 4px;
+      color: var(--soft-purple);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 1s 2.8s ease-out forwards;
+      margin-top: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    .couple-tagline {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--champagne);
+      opacity: 0;
+      animation: fadeInSimple 1.2s 3.2s ease-out forwards;
+      margin-top: 0.8rem;
+    }
+
+    /* ========== SCENE 3: TILAK CEREMONY ========== */
+    #scene3 .scene-bg {
+      background-image: url('assets/bg_details.png');
+      animation: slowZoom 8s ease-in-out forwards;
+    }
+
+    #scene3 .scene-overlay {
+      background: radial-gradient(ellipse at center, rgba(250,245,235,0.15) 0%, rgba(250,245,235,0.82) 100%);
+    }
+
+    .ceremony-badge {
+      display: inline-block;
+      padding: 0.4rem 1.8rem;
+      border: 2px solid var(--gold);
+      border-radius: 30px;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 1s 0.3s ease-out forwards;
+      margin-bottom: 1.2rem;
+    }
+
+    .ceremony-title {
+      font-family: var(--font-script);
+      font-size: 2.8rem;
+      color: var(--royal-purple);
+      opacity: 0;
+      transform: scale(0.8);
+      animation: revealTitle 1.2s 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      margin-bottom: 1.5rem;
+    }
+
+    .ceremony-date-box {
+      background: linear-gradient(135deg, var(--royal-purple), var(--deep-purple));
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 1s 1.4s ease-out forwards;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 10px 30px rgba(44, 22, 84, 0.3);
+    }
+
+    .ceremony-date-box .date-text {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--champagne);
+      letter-spacing: 2px;
+    }
+
+    .ceremony-date-box .time-text {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--soft-purple);
+      margin-top: 0.3rem;
+    }
+
+    .venue-card {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(212,168,67,0.3);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      max-width: 340px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 1s 2s ease-out forwards;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+
+    .venue-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .venue-card .venue-name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--deep-purple);
+      margin-bottom: 0.4rem;
+    }
+
+    .venue-card .venue-address {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      color: #6b5a7a;
+      line-height: 1.5;
+    }
+
+    /* ========== SCENE 4: WEDDING CEREMONY ========== */
+    #scene4 .scene-bg {
+      background-image: url('assets/bg_ceremony.png');
+      animation: slowZoom 8s ease-in-out forwards;
+    }
+
+    #scene4 .scene-overlay {
+      background: radial-gradient(ellipse at center, rgba(13,6,24,0.2) 0%, rgba(13,6,24,0.7) 100%);
+    }
+
+    .wedding-title {
+      font-family: var(--font-script);
+      font-size: 3rem;
+      color: var(--champagne);
+      opacity: 0;
+      transform: scale(0.8);
+      animation: revealTitle 1.2s 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 30px rgba(212, 168, 67, 0.3);
+    }
+
+    .wedding-date-big {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0;
+      animation: fadeInSimple 1s 1s ease-out forwards;
+      text-shadow: 0 0 20px rgba(212, 168, 67, 0.3);
+    }
+
+    .wedding-day {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--soft-purple);
+      opacity: 0;
+      animation: fadeInSimple 1s 1.4s ease-out forwards;
+      margin-bottom: 1.5rem;
+    }
+
+    .schedule-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 1s 1.8s ease-out forwards;
+      margin-bottom: 1.5rem;
+    }
+
+    .schedule-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(197, 163, 232, 0.15);
+      border-radius: 12px;
+      padding: 0.7rem 1.5rem;
+    }
+
+    .schedule-item .sched-icon {
+      font-size: 1.2rem;
+    }
+
+    .schedule-item .sched-label {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      color: var(--champagne);
+      flex: 1;
+      text-align: left;
+    }
+
+    .schedule-item .sched-time {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--lavender);
+      letter-spacing: 1px;
+    }
+
+    .venue-card-dark {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(212,168,67,0.2);
+      border-radius: 16px;
+      padding: 1.2rem 2rem;
+      max-width: 340px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 1s 2.5s ease-out forwards;
+    }
+
+    .venue-card-dark .venue-name {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--champagne);
+      margin-bottom: 0.3rem;
+    }
+
+    .venue-card-dark .venue-address {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: var(--soft-purple);
+      line-height: 1.5;
+    }
+
+    /* ========== SCENE 5: CLOSING / SAVE THE DATE ========== */
+    #scene5 .scene-bg {
+      background-image: url('assets/bg_hero.png');
+      animation: slowZoom 8s ease-in-out forwards;
+    }
+
+    #scene5 .scene-overlay {
+      background: radial-gradient(ellipse at center, rgba(250,245,235,0.2) 0%, rgba(250,245,235,0.75) 100%);
+    }
+
+    .closing-ornament {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      animation: fadeInSimple 1s 0.3s ease-out forwards;
+      margin-bottom: 1.5rem;
+    }
+
+    .save-the-date {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      animation: fadeInSimple 1s 0.5s ease-out forwards;
+      margin-bottom: 0.5rem;
+    }
+
+    .closing-names {
+      font-family: var(--font-script);
+      font-size: 3.5rem;
+      color: var(--royal-purple);
+      opacity: 0;
+      transform: scale(0.8);
+      animation: revealTitle 1.2s 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      line-height: 1.3;
+    }
+
+    .closing-amp {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 2rem;
+      color: var(--lavender);
+      display: block;
+      margin: -0.2rem 0;
+    }
+
+    .closing-date-display {
+      margin-top: 1.5rem;
+      opacity: 0;
+      animation: fadeInSimple 1s 2s ease-out forwards;
+    }
+
+    .closing-date-display .month {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--deep-purple);
+    }
+
+    .closing-date-display .day-number {
+      font-family: var(--font-heading);
+      font-size: 5rem;
+      font-weight: 700;
+      color: var(--royal-purple);
+      line-height: 1;
+      background: linear-gradient(135deg, var(--royal-purple), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .closing-date-display .year {
+      font-family: var(--font-body);
+      font-size: 1.2rem;
+      letter-spacing: 8px;
+      color: var(--gold);
+    }
+
+    .closing-footer {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-dark);
+      opacity: 0;
+      animation: fadeInSimple 1s 2.8s ease-out forwards;
+      margin-top: 2rem;
+    }
+
+    .closing-ornament-bottom {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      animation: fadeInSimple 1s 2.5s ease-out forwards;
+      margin-top: 1.5rem;
+    }
+
+    /* ========== FLOATING PARTICLES ========== */
+    .particles-container {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      animation: floatParticle linear infinite;
+    }
+
+    .petal {
+      position: absolute;
+      width: 12px;
+      height: 8px;
+      background: var(--soft-purple);
+      border-radius: 50% 0 50% 0;
+      opacity: 0.5;
+      animation: floatPetal linear infinite;
+    }
+
+    /* ========== PROGRESS BAR ========== */
+    .progress-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: rgba(255,255,255,0.1);
+      z-index: 100;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--lavender), var(--gold));
+      transition: width 0.1s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ========== PLAY BUTTON OVERLAY ========== */
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 200;
+      background: rgba(13,6,24,0.85);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: opacity 0.8s ease;
+    }
+
+    .play-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .play-btn {
+      width: 80px;
+      height: 80px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      animation: pulseGlow 2s ease-in-out infinite;
+      cursor: pointer;
+    }
+
+    .play-btn::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 22px solid var(--gold);
+      border-top: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+      margin-left: 5px;
+    }
+
+    .play-text {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--champagne);
+    }
+
+    .play-subtitle {
+      font-family: var(--font-script);
+      font-size: 2rem;
+      color: var(--gold);
+      margin-top: 1rem;
+    }
+
+    /* ========== ANIMATIONS ========== */
+    @keyframes slowZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.12); }
+    }
+
+    @keyframes revealGanesh {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideRight {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideLeft {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInSimple {
+      to { opacity: 1; }
+    }
+
+    @keyframes revealTitle {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes revealPhoto {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(212,168,67,0.2); }
+      50% { box-shadow: 0 0 40px rgba(212,168,67,0.5); }
+    }
+
+    @keyframes floatParticle {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+    }
+
+    @keyframes floatPetal {
+      0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.6; }
+      50% { transform: translateY(50vh) translateX(40px) rotate(180deg); }
+      90% { opacity: 0.4; }
+      100% { transform: translateY(-20vh) translateX(-20px) rotate(360deg); opacity: 0; }
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 400px) {
+      .bride-name, .groom-name { font-size: 3.5rem; }
+      .ceremony-title { font-size: 2.2rem; }
+      .wedding-title { font-size: 2.4rem; }
+      .closing-names { font-size: 2.8rem; }
+      .closing-date-display .day-number { font-size: 4rem; }
+      .shubh-text { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="viewport">
+    <div class="canvas" id="canvas">
+
+      <!-- ====== SCENE 1: GANESH & SHUBH VIVAH (0s - 5s) ====== -->
+      <div class="scene active" id="scene1">
+        <div class="scene-bg"></div>
+        <div class="scene-overlay"></div>
+        <div class="scene-content">
+          <div class="ganesh-symbol">🙏</div>
+          <div class="shubh-text">Shubh Vivah</div>
+          <div class="vivah-text">Wedding Invitation</div>
+        </div>
+      </div>
+
+      <!-- ====== SCENE 2: COUPLE NAMES (5s - 12s) ====== -->
+      <div class="scene" id="scene2">
+        <div class="scene-bg"></div>
+        <div class="scene-overlay"></div>
+        <div class="scene-content">
+          <div class="couple-photo-frame">
+            <img src="assets/couple.jpeg" alt="Shikha & Shashank" />
+          </div>
+          <div class="bride-name">Shikha</div>
+          <div class="weds-label">W E D S</div>
+          <div class="groom-name">Dr. Shashank</div>
+          <div class="couple-date">May 05, 2026 · Tuesday</div>
+          <div class="couple-tagline">Celebrating Love & Happiness</div>
+        </div>
+      </div>
+
+      <!-- ====== SCENE 3: TILAK & RING CEREMONY (12s - 19s) ====== -->
+      <div class="scene" id="scene3">
+        <div class="scene-bg"></div>
+        <div class="scene-overlay"></div>
+        <div class="scene-content">
+          <div class="ceremony-badge">Event I</div>
+          <div class="ceremony-title">Tilak & Ring Ceremony</div>
+          <div class="ceremony-date-box">
+            <div class="date-text">Monday, 4th May 2026</div>
+            <div class="time-text">7:00 PM Onwards</div>
+          </div>
+          <div class="venue-card">
+            <div class="venue-icon">📍</div>
+            <div class="venue-name">Hotel Vijay Intercontinental</div>
+            <div class="venue-address">
+              10/510, Khalasi Line, Tilak Nagar,<br>
+              Kanpur, 208002 (U.P.)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== SCENE 4: WEDDING CEREMONY (19s - 26s) ====== -->
+      <div class="scene" id="scene4">
+        <div class="scene-bg"></div>
+        <div class="scene-overlay"></div>
+        <div class="scene-content">
+          <div class="wedding-title">Wedding Ceremony</div>
+          <div class="wedding-date-big">5th May 2026</div>
+          <div class="wedding-day">T U E S D A Y</div>
+
+          <div class="schedule-grid">
+            <div class="schedule-item">
+              <span class="sched-icon">🎺</span>
+              <span class="sched-label">Baraat</span>
+              <span class="sched-time">8:00 PM</span>
+            </div>
+            <div class="schedule-item">
+              <span class="sched-icon">🍽️</span>
+              <span class="sched-label">Dinner</span>
+              <span class="sched-time">9:00 PM</span>
+            </div>
+            <div class="schedule-item">
+              <span class="sched-icon">🔥</span>
+              <span class="sched-label">Phere</span>
+              <span class="sched-time">11:30 PM</span>
+            </div>
+          </div>
+
+          <div class="venue-card-dark">
+            <div class="venue-icon" style="font-size: 1.2rem; margin-bottom: 0.3rem;">📍</div>
+            <div class="venue-name">Ramay Kesari Mangalam Lawn</div>
+            <div class="venue-address">
+              161/24A, Damodar Nagar, Gate No - 04,<br>
+              Kanpur, U.P., 208027
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== SCENE 5: SAVE THE DATE / CLOSING (26s - 32s) ====== -->
+      <div class="scene" id="scene5">
+        <div class="scene-bg"></div>
+        <div class="scene-overlay"></div>
+        <div class="scene-content">
+          <div class="closing-ornament"></div>
+          <div class="save-the-date">Save the Date</div>
+          <div class="closing-names">
+            Shikha
+            <span class="closing-amp">&</span>
+            Dr. Shashank
+          </div>
+          <div class="closing-date-display">
+            <div class="month">MAY</div>
+            <div class="day-number">05</div>
+            <div class="year">2 0 2 6</div>
+          </div>
+          <div class="closing-footer">You are cordially invited</div>
+          <div class="closing-ornament-bottom"></div>
+        </div>
+      </div>
+
+      <!-- ====== FLOATING PARTICLES ====== -->
+      <div class="particles-container" id="particles"></div>
+
+      <!-- ====== PROGRESS BAR ====== -->
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <!-- ====== PLAY OVERLAY ====== -->
+      <div class="play-overlay" id="playOverlay">
+        <div class="play-btn"></div>
+        <div class="play-text">Tap to Play</div>
+        <div class="play-subtitle">Shikha & Shashank</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Background Music (royalty free) -->
+  <audio id="bgMusic" preload="auto" loop>
+    <!-- We'll use Web Audio API for a gentle tone instead -->
+  </audio>
+
+  <script>
+    // ========== CONFIGURATION ==========
+    const TOTAL_DURATION = 32000; // 32 seconds total
+    const SCENES = [
+      { id: 'scene1', start: 0,     end: 5000  },
+      { id: 'scene2', start: 5000,  end: 12000 },
+      { id: 'scene3', start: 12000, end: 19000 },
+      { id: 'scene4', start: 19000, end: 26000 },
+      { id: 'scene5', start: 26000, end: 32000 },
+    ];
+
+    let startTime = null;
+    let isPlaying = false;
+    let animFrameId = null;
+    let audioCtx = null;
+
+    // ========== PARTICLES ==========
+    function createParticles() {
+      const container = document.getElementById('particles');
+      
+      // Golden sparkle particles
+      for (let i = 0; i < 25; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 4 + 2;
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.background = `hsl(${40 + Math.random() * 20}, ${70 + Math.random() * 30}%, ${60 + Math.random() * 30}%)`;
+        p.style.animationDuration = (8 + Math.random() * 12) + 's';
+        p.style.animationDelay = (Math.random() * 10) + 's';
+        p.style.opacity = 0.4 + Math.random() * 0.4;
+        container.appendChild(p);
+      }
+
+      // Flower petals
+      for (let i = 0; i < 12; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        petal.style.left = Math.random() * 100 + '%';
+        const hue = 270 + Math.random() * 30;
+        petal.style.background = `hsl(${hue}, 50%, ${70 + Math.random() * 20}%)`;
+        petal.style.animationDuration = (12 + Math.random() * 10) + 's';
+        petal.style.animationDelay = (Math.random() * 15) + 's';
+        petal.style.width = (8 + Math.random() * 8) + 'px';
+        petal.style.height = (5 + Math.random() * 5) + 'px';
+        container.appendChild(petal);
+      }
+    }
+
+    // ========== WEB AUDIO: GENTLE BELL TONES ==========
+    function createChime() {
+      if (audioCtx) return;
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      
+      const notes = [523.25, 659.25, 783.99, 1046.50, 783.99, 659.25]; // C5, E5, G5, C6...
+      let noteIndex = 0;
+
+      function playNote() {
+        if (!isPlaying) return;
+        
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        
+        osc.type = 'sine';
+        osc.frequency.value = notes[noteIndex % notes.length];
+        
+        gain.gain.setValueAtTime(0, audioCtx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.06, audioCtx.currentTime + 0.1);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 3);
+        
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        
+        osc.start(audioCtx.currentTime);
+        osc.stop(audioCtx.currentTime + 3);
+        
+        noteIndex++;
+        
+        if (isPlaying) {
+          setTimeout(playNote, 3000 + Math.random() * 2000);
+        }
+      }
+      
+      playNote();
+    }
+
+    // ========== SCENE MANAGEMENT ==========
+    function updateScenes(elapsed) {
+      SCENES.forEach(scene => {
+        const el = document.getElementById(scene.id);
+        if (elapsed >= scene.start && elapsed < scene.end) {
+          if (!el.classList.contains('active')) {
+            el.classList.add('active');
+            // Re-trigger CSS animations by re-adding inner elements
+            resetAnimations(el);
+          }
+        } else {
+          el.classList.remove('active');
+        }
+      });
+
+      // Progress bar
+      const progress = Math.min((elapsed / TOTAL_DURATION) * 100, 100);
+      document.getElementById('progressBar').style.width = progress + '%';
+    }
+
+    function resetAnimations(sceneEl) {
+      const children = sceneEl.querySelectorAll('.scene-content > *');
+      children.forEach(child => {
+        // Clone and replace to restart CSS animations
+        const clone = child.cloneNode(true);
+        child.parentNode.replaceChild(clone, child);
+      });
+      // Also reset BG animation
+      const bg = sceneEl.querySelector('.scene-bg');
+      if (bg) {
+        const bgClone = bg.cloneNode(true);
+        bg.parentNode.replaceChild(bgClone, bg);
+      }
+    }
+
+    // ========== MAIN LOOP ==========
+    function mainLoop(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+
+      updateScenes(elapsed);
+
+      if (elapsed < TOTAL_DURATION) {
+        animFrameId = requestAnimationFrame(mainLoop);
+      } else {
+        // Loop the animation
+        startTime = null;
+        animFrameId = requestAnimationFrame(mainLoop);
+      }
+    }
+
+    // ========== START ==========
+    function startInvite() {
+      document.getElementById('playOverlay').classList.add('hidden');
+      isPlaying = true;
+      createParticles();
+      createChime();
+      animFrameId = requestAnimationFrame(mainLoop);
+    }
+
+    document.getElementById('playOverlay').addEventListener('click', startInvite);
+
+    // Preload images
+    ['assets/bg_hero.png', 'assets/bg_ceremony.png', 'assets/bg_details.png', 'assets/couple.jpeg'].forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+  </script>
+</body>
+</html>
