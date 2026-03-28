@@ -3,135 +3,340 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shikha & Shashank | Wedding Invitation</title>
-  <meta name="description" content="Join us in celebrating the wedding of Shikha and Shashank on May 5th, 2026." />
-  
-  <!-- Premium Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Dr. Shashank & Dr. Shikha | Wedding Celebration 2026</title>
+  <meta name="description" content="You are cordially invited to the wedding celebration of Dr. Shashank and Dr. Shikha. Join us on May 5th, 2026 in Kanpur." />
+  <meta property="og:title" content="Dr. Shashank & Dr. Shikha — Wedding Invitation" />
+  <meta property="og:description" content="Celebrating Tradition & Happiness. May 5, 2026 — Kanpur, U.P." />
+  <meta property="og:image" content="assets/animated_couple.png" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
-  <!-- PAGE 1: HERO SETTING (COVER) -->
-  <header class="hero">
-    <div class="hero-image"></div>
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="mainNav">
+    <a href="#home">Home</a>
+    <a href="#events">Events</a>
+    <a class="nav-logo" href="#">S & S</a>
+    <a href="#family">Family</a>
+    <a href="#photos">Photos</a>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="heroParticles"></div>
     <div class="hero-content">
-      <h3>Wedding Invitation</h3>
-      <h1>Shikha</h1>
-      <span class="weds">weds</span>
-      <h1>Shashank</h1>
-      <p>May 05, 2026 &bull; Tuesday</p>
-      <p style="font-size: 0.9rem; margin-top: 5px; color: var(--text-color);">Celebrating Love & Happiness</p>
+      <div class="hero-ornament"></div>
+      <div class="hero-invite-label">Wedding Invitation</div>
+      <div class="hero-couple-photo">
+        <img src="assets/animated_couple.png" alt="Dr. Shashank & Dr. Shikha" />
+      </div>
+      <div class="hero-groom">Dr. Shashank</div>
+      <div class="hero-weds">W E D S</div>
+      <div class="hero-bride">Dr. Shikha</div>
+      <div class="hero-date">May 05, 2026 · Tuesday</div>
+      <div class="hero-tagline">Celebrating Tradition & Happiness</div>
     </div>
+    <a href="#parents" class="hero-arrow">▾</a>
   </header>
 
-  <!-- PAGE 2: FUNCTION DETAILS -->
-  <section class="section">
-    <h2 class="section-title">The Wedding Ceremonies</h2>
-    <p style="text-align: center; margin-bottom: 3rem; color: #718096; font-style: italic; max-width: 600px; margin-left: auto; margin-right: auto;">
-      The Gupta families cordially invite you to share our joy as we celebrate the union of Shikha & Dr. Shashank.
-    </p>
-    
-    <div class="events-grid">
-      <!-- Card 1 -->
-      <div class="event-card">
-        <div class="event-content">
-          <h3>Tilak & Ring Ceremony</h3>
-          <span class="event-date">ON MONDAY, 4TH MAY 2026</span>
-          <ul class="event-details">
-            <li>Ceremony begins at 7:00 PM</li>
-          </ul>
-          <div class="event-venue">
-            <strong>Venue:</strong><br>
-            Hotel Vijay Intercontinental<br>
-            10/510, Khalasi Line, Tilak Nagar,<br>
-            Kanpur, 208002 (U.P.)
+  <!-- ===== PARENTS SECTION ===== -->
+  <section class="section parents-section" id="parents">
+    <div class="section-inner">
+      <div class="section-label reveal">With the Blessings of</div>
+      <div class="section-ornament reveal"></div>
+      <div class="parents-card reveal">
+        <div class="parents-with">The Gupta Families Cordially Invite You</div>
+        <div class="parents-names-text">Mrs. Manju<br>& Mr. Ramesh Chandra Gupta</div>
+        <p class="parents-desc">
+          Request the pleasure of your gracious presence on the auspicious occasion of the <strong>Wedding Ceremony</strong> of their beloved son <strong>Dr. Shashank</strong> with <strong>Dr. Shikha</strong>, daughter of <strong>Mrs. Anita & Mr. Pawan Kumar Gupta</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EVENTS SECTION ===== -->
+  <section class="section events-section" id="events">
+    <div class="section-inner">
+      <div class="section-label reveal" style="color:var(--gold)">The Celebrations</div>
+      <h2 class="section-title light reveal">Wedding Ceremonies</h2>
+      <p class="section-subtitle light reveal">Three beautiful ceremonies to celebrate the union of our families</p>
+      <div class="section-ornament reveal"></div>
+
+      <div class="events-grid">
+
+        <!-- TILAK & RING -->
+        <div class="event-card tilak reveal reveal-delay-1">
+          <div class="event-header">
+            <div class="event-icon">💍</div>
+            <div>
+              <div class="event-name">Tilak & Ring Ceremony</div>
+            </div>
+          </div>
+          <div class="event-date-badge">Tuesday, 29th April 2026</div>
+          <div class="event-schedule">
+            <div class="schedule-chip">
+              <span class="chip-icon">🕖</span>
+              <span class="chip-label">Ceremony</span>
+              <span class="chip-time">7:00 PM</span>
+            </div>
+          </div>
+          <div class="event-venue-box">
+            <span class="pin">📍</span>
+            <div>
+              <div class="venue-name">Hotel Vijay Intercontinental</div>
+              <div class="venue-addr">10/510, Khalasi Line, Tilak Nagar, Kanpur, 208002 (U.P.)</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Card 2 -->
-      <div class="event-card">
-        <div class="event-content">
-          <h3>Wedding Ceremony</h3>
-          <span class="event-date">ON TUESDAY, 5TH MAY 2026</span>
-          <ul class="event-details">
-            <li>Baraat – 8:00 PM</li>
-            <li>Dinner – 9:00 PM</li>
-            <li>Phere – 11:30 PM</li>
-          </ul>
-          <div class="event-venue">
-            <strong>Venue:</strong><br>
-            Ramay Kesari Mangalam Lawn<br>
-            161/24A, Damodar Nagar, Gate No - 04,<br>
-            Kanpur, U.P., 208027
+        <!-- HALDI -->
+        <div class="event-card haldi reveal reveal-delay-2">
+          <div class="event-header">
+            <div class="event-icon">🌼</div>
+            <div>
+              <div class="event-name">Haldi Ceremony</div>
+            </div>
+          </div>
+          <div class="event-date-badge">Monday, 4th May 2026</div>
+          <div class="event-schedule">
+            <div class="schedule-chip">
+              <span class="chip-icon">☀️</span>
+              <span class="chip-label">Morning Onwards</span>
+            </div>
+          </div>
+          <div class="event-venue-box">
+            <span class="pin">📍</span>
+            <div>
+              <div class="venue-name">Hotel Kaushilya</div>
+              <div class="venue-addr">Fatehpur, Uttar Pradesh</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEDDING -->
+        <div class="event-card wedding reveal reveal-delay-3">
+          <div class="event-header">
+            <div class="event-icon">🔥</div>
+            <div>
+              <div class="event-name">Wedding Ceremony</div>
+            </div>
+          </div>
+          <div class="event-date-badge">Tuesday, 5th May 2026</div>
+          <div class="event-schedule">
+            <div class="schedule-chip">
+              <span class="chip-icon">🎺</span>
+              <span class="chip-label">Baraat</span>
+              <span class="chip-time">8:00 PM</span>
+            </div>
+            <div class="schedule-chip">
+              <span class="chip-icon">🍽️</span>
+              <span class="chip-label">Dinner</span>
+              <span class="chip-time">9:00 PM</span>
+            </div>
+            <div class="schedule-chip">
+              <span class="chip-icon">🔥</span>
+              <span class="chip-label">Phere</span>
+              <span class="chip-time">11:30 PM</span>
+            </div>
+          </div>
+          <div class="event-venue-box">
+            <span class="pin">📍</span>
+            <div>
+              <div class="venue-name">Ramay Kesari Mangalam Lawn</div>
+              <div class="venue-addr">161/24A, Damodar Nagar, Gate No - 04, Kanpur, U.P., 208027</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SAVE THE DATE ===== -->
+  <section class="section savedate-section" id="savedate">
+    <div class="section-inner">
+      <div class="section-label reveal">Save the Date</div>
+      <h2 class="section-title reveal">The Big Day</h2>
+      <div class="section-ornament reveal"></div>
+      <div class="savedate-grid reveal">
+        <div class="savedate-unit">
+          <div class="num" id="countDays">--</div>
+          <div class="lbl">Days</div>
+        </div>
+        <div class="savedate-unit">
+          <div class="num" id="countHours">--</div>
+          <div class="lbl">Hours</div>
+        </div>
+        <div class="savedate-unit">
+          <div class="num" id="countMins">--</div>
+          <div class="lbl">Minutes</div>
+        </div>
+        <div class="savedate-unit">
+          <div class="num" id="countSecs">--</div>
+          <div class="lbl">Seconds</div>
+        </div>
+      </div>
+      <div class="reveal" style="margin-top: 1rem;">
+        <div class="savedate-month">MAY</div>
+        <div class="savedate-big-date">05</div>
+        <div class="savedate-year">2 0 2 6</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAMILY SECTION ===== -->
+  <section class="section family-section" id="family">
+    <div class="section-inner">
+      <div class="section-label reveal">Our Families</div>
+      <h2 class="section-title reveal">With Best Compliments</h2>
+      <p class="section-subtitle reveal">From all the beloved members of both families</p>
+      <div class="section-ornament reveal"></div>
+
+      <div class="families-container reveal">
+        <!-- Groom's Family -->
+        <div class="family-column">
+          <h3 class="family-column-title">Groom's Family</h3>
+
+          <div class="family-group">
+            <div class="family-group-label">Grandparents</div>
+            <p>Late Smt. Batasha Devi & Late Shri Shivlal Gupta</p>
+            <p>Late Shri Ayodhaya Prasad Gupta</p>
+          </div>
+
+          <div class="family-group">
+            <div class="family-group-label">Parents</div>
+            <p>Mrs. Manju & Mr. Ramesh Chandra Gupta</p>
+          </div>
+
+          <div class="family-group">
+            <div class="family-group-label">Sisters & Brothers-in-law</div>
+            <p>Mrs. Namita & Mr. Anuj Gupta</p>
+            <p>Mrs. Sneha & Mr. Manoj Gupta</p>
+            <p>Mrs. Ankita & Mr. Pushkal Gupta</p>
+          </div>
+
+          <div class="family-group">
+            <div class="family-group-label">Uncles</div>
+            <p>Late Mr. Ramswaroop Gupta & Mr. Radheshyam Gupta</p>
+            <p>Late Mr. Khoob Chandra Gupta & Mr. Suresh Chandra Gupta</p>
+            <p>Mr. R.P. Gupta & Mr. Vimlesh Kumar Gupta</p>
+          </div>
+        </div>
+
+        <!-- Bride's Family -->
+        <div class="family-column">
+          <h3 class="family-column-title">Bride's Family</h3>
+
+          <div class="family-group">
+            <div class="family-group-label">Grandparents</div>
+            <p>Late Smt. Rama Kanti Gupta</p>
+            <p>Late Shri Ved Prakash Gupta</p>
+          </div>
+
+          <div class="family-group">
+            <div class="family-group-label">Parents</div>
+            <p>Mrs. Anita & Mr. Pawan Kumar Gupta</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PAGE 3: FAMILY DETAILS -->
-  <section class="section" style="background-color: #faf8f5;">
-    <h2 class="section-title">With Best Compliments</h2>
-    
-    <div class="families-container">
-      
-      <!-- Groom's Family -->
-      <div class="family-column">
-        <h3 style="text-align: left;">Groom's Family</h3>
-        
-        <div class="family-group">
-          <h4>Grandparents</h4>
-          <p>Late Smt. Batasha Devi & Late Shri Shivlal Gupta</p>
-          <p>Late Shri Ayodhaya Prasad Gupta</p>
+  <!-- ===== PHOTIER QR SECTION ===== -->
+  <section class="section photier-section" id="photos">
+    <div class="section-inner">
+      <div class="photier-grid">
+        <div class="photier-text reveal">
+          <div class="photier-badge">
+            <span class="badge-dot"></span>
+            <span>AI-Powered</span>
+          </div>
+          <h2>Share Your Wedding Memories</h2>
+          <p>Scan the QR code to access our AI-powered photo sharing platform. Photier uses advanced facial recognition to automatically find and share photos of you from the wedding celebration.</p>
+          <ul class="photier-features">
+            <li><span class="feat-icon">📸</span> Upload photos from the wedding</li>
+            <li><span class="feat-icon">🤖</span> AI facial recognition finds your photos</li>
+            <li><span class="feat-icon">🔗</span> Instantly share with family & friends</li>
+            <li><span class="feat-icon">☁️</span> All memories in one place</li>
+          </ul>
         </div>
-        
-        <div class="family-group">
-          <h4>Parents</h4>
-          <p>Mrs. Manju & Mr. Ramesh Chandra Gupta</p>
-        </div>
-        
-        <div class="family-group">
-          <h4>Sisters & Brothers-in-law</h4>
-          <p>Mrs. Namita & Mr. Anuj Gupta</p>
-          <p>Mrs. Sneha & Mr. Manoj Gupta</p>
-          <p>Mrs. Ankita & Mr. Pushkal Gupta</p>
-        </div>
-        
-        <div class="family-group">
-          <h4>Uncles</h4>
-          <p>Late Mr. Ramswaroop Gupta & Mr. Radheshyam Gupta</p>
-          <p>Late Mr. Khoob Chandra Gupta & Mr. Suresh Chandra Gupta</p>
-          <p>Mr. R.P. Gupta & Mr. Vimlesh Kumar Gupta</p>
+        <div class="photier-qr-card reveal reveal-delay-2">
+          <img src="assets/photier_pic_qrcode.png" alt="Scan to share wedding photos via Photier" />
+          <div class="qr-label">Scan with Camera</div>
+          <div class="qr-desc">Point your phone's camera at this code to open Photier</div>
         </div>
       </div>
-
-      <!-- Bride's Family -->
-      <div class="family-column">
-        <h3 style="text-align: left;">Bride's Family</h3>
-        
-        <div class="family-group">
-          <h4>Grandparents</h4>
-          <p>Late Smt. Rama Kanti Gupta</p>
-          <p>Late Shri Ved Prakash Gupta</p>
-        </div>
-        
-        <div class="family-group">
-          <h4>Parents</h4>
-          <p>Mrs. Anita & Mr. Pawan Kumar Gupta</p>
-        </div>
-      </div>
-      
     </div>
   </section>
 
-  <footer style="text-align: center; padding: 2rem; background: var(--primary-color); color: white;">
-    <p style="font-family: var(--font-heading); font-style: italic;">Made with love &middot; Shikha & Shashank</p>
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-names">Dr. Shashank & Dr. Shikha</div>
+    <div class="footer-tagline">Celebrating Tradition & Happiness</div>
+    <div class="footer-copy">MAY 5, 2026 · KANPUR, U.P.</div>
   </footer>
 
+  <script>
+    /* --- Navigation Scroll Effect --- */
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 80);
+    });
+
+    /* --- Hero Particles --- */
+    (function createHeroParticles() {
+      const c = document.getElementById('heroParticles');
+      for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div');
+        p.className = 'p';
+        const sz = Math.random() * 4 + 1.5;
+        p.style.width = sz + 'px';
+        p.style.height = sz + 'px';
+        p.style.left = Math.random() * 100 + '%';
+        const hue = Math.random() > 0.5 ? 40 + Math.random() * 20 : 270 + Math.random() * 30;
+        p.style.background = `hsl(${hue}, ${60 + Math.random() * 30}%, ${60 + Math.random() * 30}%)`;
+        p.style.animationDuration = (10 + Math.random() * 15) + 's';
+        p.style.animationDelay = (Math.random() * 12) + 's';
+        p.style.opacity = 0.3 + Math.random() * 0.5;
+        c.appendChild(p);
+      }
+    })();
+
+    /* --- Countdown Timer --- */
+    (function countdown() {
+      const target = new Date('2026-05-05T20:00:00+05:30').getTime();
+      function update() {
+        const now = Date.now();
+        const diff = target - now;
+        if (diff <= 0) {
+          document.getElementById('countDays').textContent = '🎉';
+          document.getElementById('countHours').textContent = '00';
+          document.getElementById('countMins').textContent = '00';
+          document.getElementById('countSecs').textContent = '00';
+          return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('countDays').textContent = String(d).padStart(2, '0');
+        document.getElementById('countHours').textContent = String(h).padStart(2, '0');
+        document.getElementById('countMins').textContent = String(m).padStart(2, '0');
+        document.getElementById('countSecs').textContent = String(s).padStart(2, '0');
+        requestAnimationFrame(update);
+      }
+      update();
+    })();
+
+    /* --- Scroll Reveal --- */
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
